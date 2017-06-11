@@ -1,0 +1,38 @@
+\documentclass[foldmarks=true,
+            fromemail=true,
+            fromphone=true,
+            fromalign=right,
+            version=last]{scrlttr2}
+
+\usepackage[ngerman]{babel}
+
+\begin{document}
+
+\setkomavar{fromname}{Von Name}
+\setkomavar{fromaddress}{Von Adresse\\12345 VonStadt}
+\setkomavar{fromphone}{+99~99999999}
+\setkomavar{fromemail}{from@mail.adress}
+
+\setkomavar{yourref}{your-ref}
+\setkomavar{yourmail}{your-date}
+\setkomavar{myref}{myref}
+\setkomavar{date}{\today}
+\setkomavar{subject}{Betreff}
+
+\begin{letter}
+    {%
+    Zu Name\\
+    Zu Adresse\\
+    11111 ZuStadt%
+    }
+    \opening{Sehr geehrte Damen und Herren,}
+    Text hier
+    \closing{Mit freundlichen Gr\"u{\ss}en}
+
+    \ps PS: Extra Zeile
+    % Attachments
+    \setkomavar*{enclseparator}{Anlage}
+    \encl{Liste von Anlagen\\Mehr Anlagen}
+\end{letter}
+
+\end{document}
