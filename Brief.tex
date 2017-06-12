@@ -6,6 +6,18 @@
 
 \usepackage[ngerman]{babel}
 
+\usepackage{ifluatex}
+\ifluatex % LuaTeX
+    \usepackage{fontspec}
+    \defaultfontfeatures{Ligatures=TeX}
+    %\setmainfont{MainFont}
+    %\setsansfont{SansSerifFont}
+    %\setmonofont{MonoFont}
+\else % pdfTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+\fi
+
 \begin{document}
 
 \setkomavar{fromname}{Von Name}
