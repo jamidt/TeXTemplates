@@ -1,0 +1,35 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{ownmath}[2017/06/14 Various stuff]
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts}
+\RequirePackage{mathtools}
+\RequirePackage{xparse}
+
+\NewDocumentCommand{\ProbBrackets}{m}{\left[#1\right]}
+\newcommand{\ProbSymbol}{\mathbb{P}}
+\NewDocumentCommand{\Prob}{o m}{%
+    \ProbSymbol%
+    \IfValueT{#1}{_{#1}}%
+    \ProbBrackets{#2}%
+}
+\newcommand{\ExpecSymbol}{\mathbb{E}}
+\NewDocumentCommand{\Expec}{o m}{%
+    \ExpecSymbol%
+    \IfValueT{#1}{_{#1}}%
+    \ProbBrackets{#2}%
+}
+\NewDocumentCommand{\pder}{o m o} {%
+    \frac{\partial \IfValueT{#1}{#1}}{\partial #2}\IfValueT{#3}{\Bigr|_{\substack{#3}}}%
+}
+\NewDocumentCommand{\der}{o m o} {%
+    \frac{\operatorname{d}\IfValueT{#1}{#1}}{\operatorname{d} #2}\IfValueT{#3}{\Bigr|_{\substack{#3}}}%
+}
+\newcommand{\escapeset}{\mathcal{E}}
+\NewDocumentCommand{\hammingspace}{m o}{\mathbb{H}^{#1}\IfValueT{#2}{_{#2}}}
+\NewDocumentCommand{\pathset}{o}{\mathcal{P}\IfValueT{#1}{(#1)}}
+\newcommand{\xmiddle}[1]{\;\middle#1\;}
+\newcommand{\hammingzero}{\mathbf{\hat{0}}}
+\newcommand{\hammingone}{\mathbf{\hat{1}}}
+\newcommand{\setincreasingneighbours}[1]{K(#1)}
